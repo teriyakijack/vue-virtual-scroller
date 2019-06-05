@@ -250,6 +250,9 @@ export default {
           }
         })
       }
+
+      // emit scroll event to client.
+      this.$emit('scroll', event)
     },
 
     handleVisibilityChange (isVisible, entry) {
