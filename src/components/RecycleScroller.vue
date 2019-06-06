@@ -242,6 +242,9 @@ export default {
           this.$_scrollDirty = false
           const { continuous } = this.updateVisibleItems(false)
 
+          // emit scroll event to client.
+          this.$emit('scroll', event)
+          
           // It seems sometimes chrome doesn't fire scroll event :/
           // When non continous scrolling is ending, we force a refresh
           if (!continuous) {
@@ -250,9 +253,6 @@ export default {
           }
         })
       }
-
-      // emit scroll event to client.
-      this.$emit('scroll', event)
     },
 
     handleVisibilityChange (isVisible, entry) {
